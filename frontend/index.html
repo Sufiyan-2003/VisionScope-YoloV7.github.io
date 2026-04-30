@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VisionScope - Intelligent Object Detection with YOLOv7</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <span class="logo-icon">👁️</span>
+                <h1>VisionScope</h1>
+            </div>
+            <p class="tagline">Intelligent Object Detection with YOLOv7 | Visual Explainability</p>
+        </header>
+
+        <!-- Main Content -->
+        <div class="main-grid">
+            <!-- Left Panel - Upload & Controls -->
+            <div class="control-panel">
+                <div class="card">
+                    <h2>📤 Upload Image</h2>
+                    <div class="upload-area" id="uploadArea">
+                        <input type="file" id="imageInput" accept="image/*" hidden>
+                        <div class="upload-content">
+                            <div class="upload-icon">📸</div>
+                            <p>Click or drag & drop to upload</p>
+                            <small>Supports: JPG, PNG, JPEG (Max 16MB)</small>
+                        </div>
+                    </div>
+                    
+                    <div class="preview-container" id="previewContainer" style="display: none;">
+                        <h3>Preview:</h3>
+                        <img id="previewImage" alt="Preview">
+                    </div>
+
+                    <!-- Advanced Settings -->
+                    <div class="settings-section">
+                        <h3>⚙️ Detection Settings</h3>
+                        <div class="slider-container">
+                            <label>Confidence Threshold: <span id="confValue">0.25</span></label>
+                            <input type="range" id="confThreshold" min="0" max="1" step="0.05" value="0.25">
+                        </div>
+                        <div class="slider-container">
+                            <label>IOU Threshold: <span id="iouValue">0.45</span></label>
+                            <input type="range" id="iouThreshold" min="0" max="1" step="0.05" value="0.45">
+                        </div>
+                    </div>
+
+                    <button id="detectBtn" class="btn-primary" disabled>
+                        🔍 Detect Objects
+                    </button>
+
+                    <div class="loading" id="loading" style="display: none;">
+                        <div class="spinner"></div>
+                        <p>Processing image with YOLOv7...</p>
+                    </div>
+                </div>
+
+                <!-- Results Summary -->
+                <div class="card" id="summaryCard" style="display: none;">
+                    <h2>📊 Detection Results</h2>
+                    <div id="summaryContent"></div>
+                    <div class="stats" id="stats"></div>
+                </div>
+            </div>
+
+            <!-- Right Panel - Results & Visualization -->
+            <div class="results-panel">
+                <!-- Detection Result -->
+                <div class="card" id="resultCard" style="display: none;">
+                    <h2>🎯 Detection Output</h2>
+                    <div class="result-image-container">
+                        <img id="resultImage" alt="Detection Result">
+                    </div>
+                    <div class="action-buttons">
+                        <button id="downloadBtn" class="btn-secondary">💾 Download Result</button>
+                    </div>
+                </div>
+
+                <!-- Feature Visualization -->
+                <div class="card" id="featureVizCard" style="display: none;">
+                    <h2>📈 Feature Visualization & Analysis</h2>
+                    <div id="featureViz"></div>
+                </div>
+
+                <!-- Model Architecture
+                <div class="card">
+                    <h2>🧠 YOLOv7 Architecture</h2>
+                    <div class="architecture-info">
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <span class="info-label">Backbone:</span>
+                                <span class="info-value">E-ELAN</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Neck:</span>
+                                <span class="info-value">PANet</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Head:</span>
+                                <span class="info-value">IDetect</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Parameters:</span>
+                                <span class="info-value">37.2M</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="architectureDiagram"></div>
+                    <div class="explanation-text">
+                        <h3>💡 How YOLO Works:</h3>
+                        <ol>
+                            <li><strong>Grid Division:</strong> Image divided into S×S grid cells</li>
+                            <li><strong>Bounding Box Prediction:</strong> Each cell predicts B boxes with confidence scores</li>
+                            <li><strong>Class Prediction:</strong> Each cell predicts class probabilities</li>
+                            <li><strong>Non-Max Suppression:</strong> Removes overlapping duplicate detections</li>
+                        </ol>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

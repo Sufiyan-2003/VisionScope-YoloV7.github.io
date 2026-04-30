@@ -1,0 +1,16 @@
+torch>=1.7.0
+torchvision>=0.8.0
+opencv-python>=4.5.0
+numpy>=1.19.0
+flask>=2.0.0
+flask-cors>=3.0.0
+pillow>=8.0.0
+matplotlib>=3.3.0
+requests>=2.25.0
+flask
+flask-cors
+opencv-python
+torch
+torchvision
+numpy
+pillow
